@@ -15,7 +15,7 @@ const FavoriteList = ({
 
   let [favorites, setFavorites] = useState([]);
   let [, storage] = useAxiosGet(
-    `https://localhost:44348/api/favorite/${user.id}`,
+    `https://localhost:44345/api/favorite/${user.id}`,
     []
   );
 

@@ -20,11 +20,11 @@ const CryptoDetails = ({
 
   const [favorite, setfavorite] = useState(isFavorite);
   let [, storage] = useAxiosGet(
-    `https://localhost:44348/api/favorite/${user.id}`,
+    `https://localhost:44345/api/favorite/${user.id}`,
     []
   );
-  const cryptoURL = `https://localhost:44348/api/cryptodetail/${cryptoId}`;
-  const cryptoDataURL = `https://localhost:44348/api/cryptograph/${cryptoId}`;
+  const cryptoURL = `https://localhost:44345/api/cryptodetail/${cryptoId}`;
+  const cryptoDataURL = `https://localhost:44345/api/cryptograph/${cryptoId}`;
   let dates = [];
   let prices = [];
   let hasData = false;
@@ -43,9 +43,9 @@ const CryptoDetails = ({
     console.log(selectedCrypto)
     setfavorite(!favorite);
     if (favorite) {
-      axios.delete(`https://localhost:44348/api/favorite/${crypto.id}/${user.id}`);
+      axios.delete(`https://localhost:44345/api/favorite/${crypto.id}/${user.id}`);
     } else {
-      axios.post(`https://localhost:44348/api/favorite/${user.id}`, selectedCrypto);
+      axios.post(`https://localhost:44345/api/favorite/${user.id}`, selectedCrypto);
     }
   };
 

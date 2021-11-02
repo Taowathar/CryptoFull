@@ -19,13 +19,13 @@ function App() {
   let [modalOpen, setModalOpen] = useState(false);
   let [selectedCrypto, setSelectedCrypto] = useState({});
   let [cryptoId, setCryptoId] = useState();
-  let [isFavorite, setIsFavorite] = useState();;
-  let [user, setUser] = useState()
-  let [loggedIn, setLoggedIn] = useState(false)
+  let [isFavorite, setIsFavorite] = useState();
+  let [user, setUser] = useState();
+  let [loggedIn, setLoggedIn] = useState(false);
 
   const pageCount = 459;
   const cryptoPerPage = 20;
-  const cryptoListURL = `https://localhost:44348/api/cryptolist/${currentPage}/${cryptoPerPage}`;
+  const cryptoListURL = `https://localhost:44345/api/cryptolist/${currentPage}/${cryptoPerPage}`;
 
   let cryptoList = null;
   const [, fetchedCryptoList] = useAxiosGet(cryptoListURL, [currentPage]);
@@ -39,7 +39,6 @@ function App() {
 
   function openModal(crypto) {
 
-    console.log(crypto)
     setSelectedCrypto(crypto);
     setModalOpen(true);
   }

@@ -9,7 +9,7 @@ import Loading from "./Loading";
 const Investment = ({ crypto, openModal }) => {
   // const url = `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=${crypto.id}&order=market_cap_desc&per_page=100&page=1&sparkline=false`;`https://localhost:44348/api/cryptograph/${crypto.id}}`
 
-  const url = `https://localhost:44348/api/cryptodetail/${crypto.crypto_id}`;
+  const url = `https://localhost:44345/api/cryptodetail/${crypto.crypto_id}`;
   const [, fetchedDetails] = useAxiosGet(url, []);
   let details, detailsSimplified = null;
   
@@ -26,7 +26,7 @@ const Investment = ({ crypto, openModal }) => {
 
   let prices = [];
   let dates = [];
-  let pricesUrl = `https://localhost:44348/api/cryptograph/${crypto.crypto_id}`;
+  let pricesUrl = `https://localhost:44345/api/cryptograph/${crypto.crypto_id}`;
   const [, fetchedPrices] = useAxiosGet(pricesUrl, []);
   if (fetchedPrices) {
     for (let price of fetchedPrices.prices) {

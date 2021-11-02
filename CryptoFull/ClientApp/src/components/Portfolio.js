@@ -19,7 +19,7 @@ const Portfolio = ({openModal, user, loggedIn}) => {
 
     // const ids = Object.keys(portfolio);
     // const url = `https://api.coingecko.com/api/v3/simple/price?ids=${ids.join('%2C')}&vs_currencies=usd`;
-    const url = `https://localhost:44348/api/investmentlist/${user.id}`; // param: userId
+    const url = `https://localhost:44345/api/investmentlist/${user.id}`; // param: userId
     const [, portfolio] = useAxiosGet(url, []);
 
     
