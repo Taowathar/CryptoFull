@@ -60,11 +60,11 @@ const Crypto = ({
 
   return (
     <tr>
-      <td style={{ transform: "translate(28%, 8%)" }}>
-        {loggedIn ? <div className="favoriteButton" onClick={changeFavorite}>
+      {loggedIn ? <td style={{ transform: "translate(28%, 8%)" }}>
+        <div className="favoriteButton" onClick={changeFavorite}>
           {favorite ? <AiFillHeart /> : <AiOutlineHeart />}
-        </div> : null}
-      </td>
+        </div>
+      </td> : null}
       <td>
         <Link
           className="detail-link"
@@ -107,9 +107,9 @@ const Crypto = ({
               maximumFractionDigits: 2,
             })}%`}
       </td>
-      <td className="investButton">
-        {loggedIn ? <InvestButton onClick={onClick}>Invest</InvestButton> : null}
-      </td>
+      {loggedIn ? <td className="investButton">
+        <InvestButton onClick={onClick}>Invest</InvestButton>
+      </td> : null}
     </tr>
   );
 };

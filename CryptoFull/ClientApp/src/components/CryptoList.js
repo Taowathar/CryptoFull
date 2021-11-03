@@ -6,7 +6,7 @@ const CryptoList = ({ cryptoList, openModal, setCryptoId, setIsFavorite, setSele
       <table>
         <thead>
           <tr id="table-head">
-            <th className="table-column-favorite"></th>
+            {loggedIn ? <th className="table-column-favorite"></th> : null}
             <th
               className="table-column-logo"
               style={{ textAlign: "left", transform: "translateX(22%)" }}
@@ -20,7 +20,7 @@ const CryptoList = ({ cryptoList, openModal, setCryptoId, setIsFavorite, setSele
             <th className="table-column-change" style={{ padding: "10px" }}>
               Change (24h)
             </th>
-            <th></th>
+            {loggedIn ? <th></th> : null}
           </tr>
         </thead>
         <tbody>
