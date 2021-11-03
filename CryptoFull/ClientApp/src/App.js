@@ -5,9 +5,8 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { useAxiosGet } from "./hooks/axiosGet";
 import CryptoList from "./components/CryptoList";
 import FavoriteList from "./components/FavoriteList";
-import Header from "./components/Header";
+import Navbar from "./components/Navbar";
 import TodayCoin from "./components/TodayCoin";
-//import Home from "./components/Home";
 import InvestModal from "./components/InvestModal";
 import CryptoDetails from "./components/CryptoDetails";
 import Portfolio from "./components/Portfolio";
@@ -57,7 +56,7 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <Header user={user} loggedIn={loggedIn}></Header>
+        <Navbar user={user} loggedIn={loggedIn}></Navbar>
         {loggedIn && (
 
           <InvestModal
