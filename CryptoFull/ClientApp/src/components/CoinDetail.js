@@ -86,7 +86,7 @@ const CoinDetail = ({ crypto, openModal, user, loggedIn }) => {
       {!hasData && <Loading marginLeft="33.5"></Loading>}
       {hasData && (
         <>
-          <ButtonsDiv>
+          {loggedIn ? <ButtonsDiv>
             <div className="favoriteButton" onClick={changeFavorite}>
               {favorite ? (
                 <AiFillHeart size={30} />
@@ -97,7 +97,7 @@ const CoinDetail = ({ crypto, openModal, user, loggedIn }) => {
             <div>
               <InvestButton onClick={onClick}>Invest</InvestButton>
             </div>
-          </ButtonsDiv>
+          </ButtonsDiv>: null}
 
           <TodayContainer>
             <div style={{ marginTop: "-2rem" }}>
