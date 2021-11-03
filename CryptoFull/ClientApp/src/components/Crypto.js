@@ -19,7 +19,7 @@ const Crypto = ({
   }
   const [favorite, setfavorite] = useState(isFavorite);
   let [, storage] = useAxiosGet(
-    `https://localhost:44345/api/favorite/${user.id}`,
+    `/api/favorite/${user.id}`,
     []
   );
 
@@ -38,10 +38,10 @@ const Crypto = ({
     setfavorite(!favorite);
     if (favorite) {
       axios.delete(
-        `https://localhost:44345/api/favorite/${crypto.id}/${user.id}`
+        `/api/favorite/${crypto.id}/${user.id}`
       );
     } else {
-      axios.post(`https://localhost:44345/api/favorite/${user.id}`, crypto);
+      axios.post(`/api/favorite/${user.id}`, crypto);
     }
   };
 

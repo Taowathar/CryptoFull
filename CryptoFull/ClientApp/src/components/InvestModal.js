@@ -78,7 +78,7 @@ const InvestModal = ({crypto, modalOpen, modalClose, user, loggedIn}) => {
     const [modalIsOpen, setIsOpen] = React.useState(false);
     const history = JSON.parse(localStorage.getItem('history'));
     let balance = user.balance;
-    const url = `https://localhost:44345/api/investmentlist/${user.id}`; // param: userId
+    const url = `/api/investmentlist/${user.id}`; // param: userId
     const [, portfolio] = useAxiosGet(url, []);
     const [overBalance, setOverBalance] = useState('false');
     const [errorMessage, setErrorMessage] = useState('');
@@ -135,7 +135,7 @@ const InvestModal = ({crypto, modalOpen, modalClose, user, loggedIn}) => {
                     investment.amount += boughtAmount;
                     investment.price += price;
                     inPortfolio = true;
-                    axios.put(`https://localhost:44345/api/investmentlist/${investment.id}`, investment)
+                    axios.put(`/api/investmentlist/${investment.id}`, investment)
                 }
             })
             if (!inPortfolio) {
@@ -145,10 +145,10 @@ const InvestModal = ({crypto, modalOpen, modalClose, user, loggedIn}) => {
                     'amount' : boughtAmount, 
                     'price' : price
                 }
-                axios.post(`https://localhost:44345/api/investmentlist/${user.id}`, newPurchase)
+                axios.post(`/api/investmentlist/${user.id}`, newPurchase)
             }
             user.balance = +(user.balance - price).toFixed(2)
-            axios.put(`https://localhost:44345/api/user/${user.id}`, user)
+            axios.put(`/api/user/${user.id}`, user)
             // localStorage.setItem('portfolio', JSON.stringify(portfolio))
             const newPurchase = {
                 date: new Date(),

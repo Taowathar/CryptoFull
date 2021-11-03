@@ -7,7 +7,7 @@ function TodayCoin({ openModal, user }) {
   let dailyCrypto = null;
   let hasCurr = false;
 
-  let url = `https://localhost:44345/api/dailycrypto/`;
+  let url = `/api/dailycrypto/`;
 
   const [, fetchedCrypto] = useAxiosGet(url, []);
 
