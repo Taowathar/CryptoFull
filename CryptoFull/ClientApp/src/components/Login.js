@@ -12,7 +12,7 @@ const Login = ({ setUser, setLoggedIn, loggedIn }) => {
   //const alert = useAlert();
   const login = (e) => {
     e.preventDefault();
-    axios.post("https://localhost:44345/api/user/login", userData).then(Response => {
+    axios.post("/api/user/login", userData).then(Response => {
       if (Response.data != null) {
         setUser(Response.data)
         setLoggedIn(true)

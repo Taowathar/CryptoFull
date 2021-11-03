@@ -12,7 +12,7 @@ const Register = () => {
 
   const registration = (e) => {
     e.preventDefault();
-    axios.post("https://localhost:44345/api/user", userData)
+    axios.post("/api/user", userData)
     setNewUser(true)
   };
 

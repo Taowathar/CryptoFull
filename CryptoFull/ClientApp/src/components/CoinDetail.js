@@ -18,14 +18,14 @@ const CoinDetail = ({ crypto, openModal, user }) => {
   let dates = [];
   let prices = [];
 
-  let dataUrl = `https://localhost:44345/api/cryptograph/${crypto.id}`;
-  let detailsUrl = `https://localhost:44345/api/cryptodetail/${crypto.id}`
+  let dataUrl = `/api/cryptograph/${crypto.id}`;
+  let detailsUrl = `/api/cryptodetail/${crypto.id}`
 
   const [, fetchedCryptoDetails] = useAxiosGet(detailsUrl, []);
   const [, fetchedCryptoData] = useAxiosGet(dataUrl, []);
   const [favorite, setfavorite] = useState(false);
   let [, storage] = useAxiosGet(
-    `https://localhost:44345/api/favorite/${user.id}`,
+    `/api/favorite/${user.id}`,
     []
   );
 
@@ -56,9 +56,9 @@ const CoinDetail = ({ crypto, openModal, user }) => {
 
     setfavorite(!favorite);
     if (favorite) {
-      axios.delete(`https://localhost:44345/api/favorite/${crypto.id}/${user.id}`);
+      axios.delete(`/api/favorite/${crypto.id}/${user.id}`);
     } else {
-      axios.post(`https://localhost:44345/api/favorite/detail/${user.id}`, cryptoDetails);
+      axios.post(`/api/favorite/detail/${user.id}`, cryptoDetails);
     }
   };
 

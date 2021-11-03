@@ -25,7 +25,7 @@ function App() {
 
   const pageCount = 459;
   const cryptoPerPage = 20;
-  const cryptoListURL = `https://localhost:44345/api/cryptolist/${currentPage}/${cryptoPerPage}`;
+  const cryptoListURL = `/api/cryptolist/${currentPage}/${cryptoPerPage}`;
 
   let cryptoList = null;
   const [, fetchedCryptoList] = useAxiosGet(cryptoListURL, [currentPage]);
