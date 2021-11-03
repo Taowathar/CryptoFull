@@ -21,17 +21,20 @@ function Navbar({ user, loggedIn }) {
         <NavDiv className="CryptoList">
           <NavLink to="/cryptolist">Crypto List</NavLink>
         </NavDiv>
+        
         <NavDiv className="Trade">
-          <NavLink to="/favorites">Favorites</NavLink>
+          {loggedIn ? <NavLink to="/favorites">Favorites</NavLink> : null}
         </NavDiv>
         <NavDiv className="Portfolio">
-          <NavLink to="/portfolio">Portfolio</NavLink>
+          {loggedIn ? <NavLink to="/portfolio">Portfolio</NavLink> : null}
         </NavDiv>
         <NavDiv className="History">
-          <NavLink to="/history">Trade history</NavLink>
+          {loggedIn ? <NavLink to="/history">Trade history</NavLink>: null}
         </NavDiv>
         <NavDiv className="Login">
-          {!loggedIn ? (<NavLink to="/register">Register</NavLink>) : null}
+          {!loggedIn ? <NavLink to="/register">Register</NavLink> : null}
+
+
           {loggedIn ? (
             <NavLink to="/logout">Logout</NavLink>
           ) : (
