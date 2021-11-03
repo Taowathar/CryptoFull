@@ -33,7 +33,7 @@ const Crypto = ({
         }
       }
     }
-  }, [storage]);
+  }, [storage, crypto]);
 
   const changeFavorite = () => {
     setfavorite(!favorite);
