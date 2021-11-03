@@ -37,7 +37,7 @@ const CryptoDetails = ({
         }
       }
     }
-  }, [storage]);
+  }, [storage, cryptoId]);
 
   const changeFavorite = () => {
     console.log(selectedCrypto)
