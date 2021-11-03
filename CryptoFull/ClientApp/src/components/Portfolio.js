@@ -58,7 +58,6 @@ const Portfolio = ({openModal, user, loggedIn}) => {
         for (let i = startIndex; i < maxIndex; i++) {
             investmentsToDisplay.push(investmentList[i]);
         }
-        console.log(investmentsToDisplay)
     }
     
 
