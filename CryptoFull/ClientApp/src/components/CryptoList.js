@@ -1,6 +1,6 @@
 import Crypto from "./Crypto";
 
-const CryptoList = ({ cryptoList, openModal, setCryptoId, setIsFavorite, setSelectedCrypto, user }) => {
+const CryptoList = ({ cryptoList, openModal, setCryptoId, setIsFavorite, setSelectedCrypto, user, loggedIn }) => {
   return (
     <div className="table-container">
       <table>
@@ -33,7 +33,7 @@ const CryptoList = ({ cryptoList, openModal, setCryptoId, setIsFavorite, setSele
               setCryptoId={setCryptoId}
               setIsFavorite={setIsFavorite}
               setSelectedCrypto={setSelectedCrypto}
-              user={user}
+              user={user} loggedIn={loggedIn}
             />
           ))}
         </tbody>

@@ -13,6 +13,7 @@ const Crypto = ({
   setIsFavorite,
   setSelectedCrypto,
   user,
+  loggedIn
 }) => {
   if (user === undefined) {
     user = { id: "1" };
@@ -60,9 +61,9 @@ const Crypto = ({
   return (
     <tr>
       <td style={{ transform: "translate(28%, 8%)" }}>
-        <div className="favoriteButton" onClick={changeFavorite}>
+        {loggedIn ? <div className="favoriteButton" onClick={changeFavorite}>
           {favorite ? <AiFillHeart /> : <AiOutlineHeart />}
-        </div>
+        </div> : null}
       </td>
       <td>
         <Link
