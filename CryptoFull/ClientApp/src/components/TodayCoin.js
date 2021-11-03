@@ -3,7 +3,7 @@ import CoinDetail from "./CoinDetail";
 import Loading from "./Loading";
 import styled from "styled-components";
 
-function TodayCoin({ openModal, user }) {
+function TodayCoin({ openModal, user, loggedIn }) {
   let dailyCrypto = null;
   let hasCurr = false;
 
@@ -27,11 +27,7 @@ function TodayCoin({ openModal, user }) {
       {hasCurr && (
         <>
           <div className="todayCoin">
-            <CoinDetail
-              crypto={dailyCrypto}
-              openModal={openModal}
-              user={user}
-            ></CoinDetail>
+            <CoinDetail crypto={dailyCrypto} openModal={openModal} user={user} loggedIn={loggedIn}></CoinDetail>
           </div>
         </>
       )}

@@ -7,7 +7,7 @@ import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 import Loading from "./Loading";
 import axios from "axios";
 
-const CoinDetail = ({ crypto, openModal, user }) => {
+const CoinDetail = ({ crypto, openModal, user, loggedIn }) => {
   if (user === undefined) {
     user = { id: "1" };
   }

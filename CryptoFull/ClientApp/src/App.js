@@ -6,7 +6,8 @@ import { useAxiosGet } from "./hooks/axiosGet";
 import CryptoList from "./components/CryptoList";
 import FavoriteList from "./components/FavoriteList";
 import Header from "./components/Header";
-import Home from "./components/Home";
+import TodayCoin from "./components/TodayCoin";
+//import Home from "./components/Home";
 import InvestModal from "./components/InvestModal";
 import CryptoDetails from "./components/CryptoDetails";
 import Portfolio from "./components/Portfolio";
@@ -73,7 +74,7 @@ function App() {
             exact
             render={() => (
               <>
-                <Home openModal={openModal} user={user}></Home>
+                <TodayCoin openModal={openModal} user={user} loggedIn={loggedIn}></TodayCoin>
               </>
             )}
           />
