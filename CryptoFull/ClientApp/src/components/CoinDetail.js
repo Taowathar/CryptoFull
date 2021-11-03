@@ -7,7 +7,7 @@ import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 import Loading from "./Loading";
 import axios from "axios";
 
-const CoinDetail = ({ crypto, openModal, user }) => {
+const CoinDetail = ({ crypto, openModal, user, loggedIn }) => {
   if (user === undefined) {
     user = { id: "1" };
   }
@@ -86,7 +86,7 @@ const CoinDetail = ({ crypto, openModal, user }) => {
       {!hasData && <Loading marginLeft="33.5"></Loading>}
       {hasData && (
         <>
-          <ButtonsDiv>
+          {loggedIn ? <ButtonsDiv>
             <div className="favoriteButton" onClick={changeFavorite}>
               {favorite ? (
                 <AiFillHeart size={30} />
@@ -97,7 +97,7 @@ const CoinDetail = ({ crypto, openModal, user }) => {
             <div>
               <InvestButton onClick={onClick}>Invest</InvestButton>
             </div>
-          </ButtonsDiv>
+          </ButtonsDiv>: null}
 
           <TodayContainer>
             <div style={{ marginTop: "-2rem" }}>

@@ -13,6 +13,7 @@ const Crypto = ({
   setIsFavorite,
   setSelectedCrypto,
   user,
+  loggedIn
 }) => {
   if (user === undefined) {
     user = { id: "1" };
@@ -59,11 +60,11 @@ const Crypto = ({
 
   return (
     <tr>
-      <td style={{ transform: "translate(28%, 8%)" }}>
+      {loggedIn ? <td style={{ transform: "translate(28%, 8%)" }}>
         <div className="favoriteButton" onClick={changeFavorite}>
           {favorite ? <AiFillHeart /> : <AiOutlineHeart />}
         </div>
-      </td>
+      </td> : null}
       <td>
         <Link
           className="detail-link"
@@ -106,9 +107,9 @@ const Crypto = ({
               maximumFractionDigits: 2,
             })}%`}
       </td>
-      <td className="investButton">
+      {loggedIn ? <td className="investButton">
         <InvestButton onClick={onClick}>Invest</InvestButton>
-      </td>
+      </td> : null}
     </tr>
   );
 };

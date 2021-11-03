@@ -5,8 +5,8 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { useAxiosGet } from "./hooks/axiosGet";
 import CryptoList from "./components/CryptoList";
 import FavoriteList from "./components/FavoriteList";
-import Header from "./components/Header";
-import Home from "./components/Home";
+import Navbar from "./components/Navbar";
+import TodayCoin from "./components/TodayCoin";
 import InvestModal from "./components/InvestModal";
 import CryptoDetails from "./components/CryptoDetails";
 import Portfolio from "./components/Portfolio";
@@ -56,7 +56,7 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <Header user={user} loggedIn={loggedIn}></Header>
+        <Navbar user={user} loggedIn={loggedIn}></Navbar>
         {loggedIn && (
 
           <InvestModal
@@ -73,7 +73,7 @@ function App() {
             exact
             render={() => (
               <>
-                <Home openModal={openModal} user={user}></Home>
+                <TodayCoin openModal={openModal} user={user} loggedIn={loggedIn}></TodayCoin>
               </>
             )}
           />
@@ -90,7 +90,7 @@ function App() {
                       setCryptoId={setCryptoId}
                       setSelectedCrypto={setSelectedCrypto}
                       setIsFavorite={setIsFavorite}
-                      user={user}
+                      user={user} loggedIn={loggedIn}
                     />
                   )}
                 </div>
@@ -123,7 +123,7 @@ function App() {
                   cryptoId={cryptoId}
                   openModal={openModal}
                   isFavorite={isFavorite}
-                  user={user}
+                  user={user} loggedIn={loggedIn}
                 />
               </div>
             )}
