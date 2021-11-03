@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Redirect } from "react-router";
 
-import { useAlert } from "react-alert";
+//import { useAlert } from "react-alert";
 import axios from "axios";
 
 const Login = ({ setUser, setLoggedIn, loggedIn }) => {
@@ -9,7 +9,7 @@ const Login = ({ setUser, setLoggedIn, loggedIn }) => {
     Email: "",
     Password: "",
   });
-  const alert = useAlert();
+  //const alert = useAlert();
   const login = (e) => {
     e.preventDefault();
     axios.post("https://localhost:44345/api/user/login", userData).then(Response => {
