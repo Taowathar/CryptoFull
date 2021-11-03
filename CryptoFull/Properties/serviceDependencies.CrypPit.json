@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "mssql1": {
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Sql/servers/cryppitserver/databases/CryptoDB",
+      "type": "mssql.azure",
+      "connectionId": "ConnectionStrings:DBConnection",
+      "secretStore": "AzureAppSettings"
+    }
+  }
+}
