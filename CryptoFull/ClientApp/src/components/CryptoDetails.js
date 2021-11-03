@@ -13,6 +13,7 @@ const CryptoDetails = ({
   openModal,
   isFavorite,
   user,
+  loggedIn
 }) => {
   if (user === undefined) {
     user = { id: "1" };
@@ -85,7 +86,7 @@ const CryptoDetails = ({
       {!hasData && <Loading marginLeft="0" />}
       {hasData && (
         <>
-          <ButtonsDiv>
+          {loggedIn ? <ButtonsDiv>
             <div className="favoriteButton" onClick={changeFavorite}>
               {favorite ? (
                 <AiFillHeart size={50} />
@@ -98,7 +99,7 @@ const CryptoDetails = ({
                 Invest
               </InvestButton>
             </div>
-          </ButtonsDiv>
+          </ButtonsDiv> : null}
 
           <TodayContainer>
             <div>

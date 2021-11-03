@@ -123,7 +123,7 @@ function App() {
                   cryptoId={cryptoId}
                   openModal={openModal}
                   isFavorite={isFavorite}
-                  user={user}
+                  user={user} loggedIn={loggedIn}
                 />
               </div>
             )}
