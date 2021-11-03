@@ -138,7 +138,7 @@ function App() {
                   setCryptoId={setCryptoId}
                   setSelectedCrypto={setSelectedCrypto}
                   setIsFavorite={setIsFavorite}
-                  user={user}
+                  user={user} loggedIn={loggedIn}
                 />
               </div>
             )}

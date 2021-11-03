@@ -8,6 +8,7 @@ const FavoriteList = ({
   openModal,
   setSelectedCrypto,
   user,
+  loggedIn
 }) => {
   if (user === undefined) {
     user = { id: "1" };
@@ -28,7 +29,7 @@ const FavoriteList = ({
       <table>
         <thead>
           <tr id="table-head">
-            <th className="table-column-favorite"></th>
+            {loggedIn ? <th className="table-column-favorite"></th> : null}
             <th
               className="table-column-logo"
               style={{ textAlign: "left", transform: "translateX(22%)" }}
@@ -42,7 +43,7 @@ const FavoriteList = ({
             <th className="table-column-change" style={{ padding: "10px" }}>
               Change (24h)
             </th>
-            <th></th>
+            {loggedIn ? <th></th>: null}
           </tr>
         </thead>
         <tbody>
@@ -56,7 +57,7 @@ const FavoriteList = ({
                 setCryptoId={setCryptoId}
                 setIsFavorite={setIsFavorite}
                 setSelectedCrypto={setSelectedCrypto}
-                user={user}
+                user={user} loggedIn={loggedIn}
               />
             ))}
         </tbody>
