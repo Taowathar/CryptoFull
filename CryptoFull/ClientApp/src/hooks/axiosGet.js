@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 
-export const useAxiosGet = (url, dependencies=[]) => {
+export const useAxiosGet = (url, dependencies) => {
   const [isLoading, setIsLoading] = useState(false);
   const [fetchedData, setFetchedData] = useState(null);
   const [error, setError] = useState(null);
@@ -18,12 +18,11 @@ export const useAxiosGet = (url, dependencies=[]) => {
         setError(error);
         setIsLoading(false);
       });
-  }, dependencies);
+  }, [url]); 
 
   if (error) {
     console.log(`Error: ${error.message}`);
     return `Error: ${error.message}`;
   }
-
   return [isLoading, fetchedData];
 };

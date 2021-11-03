@@ -2,7 +2,6 @@ import React, {useState} from 'react'
 import { useAxiosGet } from '../hooks/axiosGet';
 import InvestmentList from './InvestmentList';
 import ReactPaginate from 'react-paginate';
-import { createGlobalStyle } from 'styled-components';
 
 
 const Portfolio = ({openModal, user, loggedIn}) => {
@@ -59,7 +58,6 @@ const Portfolio = ({openModal, user, loggedIn}) => {
         for (let i = startIndex; i < maxIndex; i++) {
             investmentsToDisplay.push(investmentList[i]);
         }
-        console.log(investmentsToDisplay)
     }
     
 

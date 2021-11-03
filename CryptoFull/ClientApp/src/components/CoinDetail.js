@@ -36,7 +36,6 @@ const CoinDetail = ({ crypto, openModal, user }) => {
 
   if (cryptoData != null) {
     hasData = true;
-    console.log(cryptoDetails)
     for (let detail of cryptoData.prices) {
       dates.push(timeConverter(detail[0]));
       prices.push(detail[1]);
@@ -51,11 +50,10 @@ const CoinDetail = ({ crypto, openModal, user }) => {
         }
       }
     }
-  }, [storage]);
+  }, [storage, crypto.id]);
 
   const changeFavorite = () => {
 
-    console.log(cryptoDetails)
     setfavorite(!favorite);
     if (favorite) {
       axios.delete(`https://localhost:44345/api/favorite/${crypto.id}/${user.id}`);

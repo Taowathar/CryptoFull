@@ -33,14 +33,12 @@ const Button = styled.button`
 Modal.setAppElement('#root');
 
 const InvestModal = ({crypto, modalOpen, modalClose, user, loggedIn}) => {
-    console.log(crypto)
     if(!loggedIn) {
         user = {
             'balance': 0
         }
     }
     if (Object.keys(crypto).length === 0) {
-        console.log('asd')
         crypto = {
             "id": "bitcoin",
             "symbol": "btc",
@@ -133,11 +131,10 @@ const InvestModal = ({crypto, modalOpen, modalClose, user, loggedIn}) => {
             let inPortfolio = false;
             portfolio.forEach(investment => {
                 console.log(investment.crypto_id, crypto.id)
-                if (investment.crypto_id == crypto.id) {
+                if (investment.crypto_id === crypto.id) {
                     investment.amount += boughtAmount;
                     investment.price += price;
                     inPortfolio = true;
-                    console.log('l')
                     axios.put(`https://localhost:44345/api/investmentlist/${investment.id}`, investment)
                 }
             })

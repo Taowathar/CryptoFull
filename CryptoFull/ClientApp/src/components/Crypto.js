@@ -25,15 +25,14 @@ const Crypto = ({
 
   useEffect(() => {
     if (storage) {
-      console.log(crypto);
-      for (let cryp of storage) {
+        for (let cryp of storage) {
         if (cryp.id === crypto.id) {
           crypto.favoriteId = cryp.favoriteId;
           setfavorite(true);
         }
       }
     }
-  }, [storage]);
+  }, [storage, crypto]);
 
   const changeFavorite = () => {
     setfavorite(!favorite);
