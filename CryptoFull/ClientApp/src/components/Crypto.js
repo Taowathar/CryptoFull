@@ -108,7 +108,7 @@ const Crypto = ({
             })}%`}
       </td>
       <td className="investButton">
-        <InvestButton onClick={onClick}>Invest</InvestButton>
+        {loggedIn ? <InvestButton onClick={onClick}>Invest</InvestButton> : null}
       </td>
     </tr>
   );
