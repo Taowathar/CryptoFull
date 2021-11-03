@@ -73,7 +73,8 @@ const InvestModal = ({crypto, modalOpen, modalClose, user, loggedIn}) => {
     }
     
     let subtitle;
-    const [usdAmount, setUsdAmount] = useState(crypto.current_price);
+    const currentPrice = crypto.current_price ? crypto.current_price : crypto.market_data.current_price.usd;
+    const [usdAmount, setUsdAmount] = useState(currentPrice);
     const [cryptoAmount, setCryptoAmount] = useState(1);
     const [modalIsOpen, setIsOpen] = React.useState(false);
     const history = JSON.parse(localStorage.getItem('history'));
@@ -85,10 +86,10 @@ const InvestModal = ({crypto, modalOpen, modalClose, user, loggedIn}) => {
     
     useEffect(() => {
        setIsOpen(modalOpen)
-       setUsdAmount(crypto.current_price);
+        setUsdAmount(currentPrice);
        setCryptoAmount(1);
-       setOverBalance(crypto.current_price > balance ? true : false)
-    }, [modalOpen, crypto.current_price, balance])
+        setOverBalance(currentPrice > balance ? true : false)
+    }, [modalOpen, currentPrice, balance])
     
     function afterOpenModal() {
         subtitle.style.color = '#0f870f';
@@ -107,11 +108,11 @@ const InvestModal = ({crypto, modalOpen, modalClose, user, loggedIn}) => {
         }
         setUsdAmount(inputValue);
         const decimalPlaces = 10;
-        setCryptoAmount(+(inputValue/(crypto.current_price ? crypto.current_price : crypto.market_data.current_price.usd)).toFixed(decimalPlaces))
+        setCryptoAmount(+(inputValue / (currentPrice)).toFixed(decimalPlaces))
     }
 
     function setCrypto(inputValue) {
-        const totalUsd = inputValue*(crypto.current_price  ? crypto.current_price : crypto.market_data.current_price.usd);
+        const totalUsd = inputValue * (currentPrice);
         setOverBalance(totalUsd > balance);
         if(inputValue < 0){
             inputValue = 0;
@@ -130,7 +131,6 @@ const InvestModal = ({crypto, modalOpen, modalClose, user, loggedIn}) => {
             const boughtAmount = parseFloat(e.target[1].value);
             let inPortfolio = false;
             portfolio.forEach(investment => {
-                console.log(investment.crypto_id, crypto.id)
                 if (investment.crypto_id === crypto.id) {
                     investment.amount += boughtAmount;
                     investment.price += price;
