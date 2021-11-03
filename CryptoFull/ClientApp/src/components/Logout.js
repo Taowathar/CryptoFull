@@ -1,7 +1,7 @@
 import { Redirect } from "react-router";
 
 const Logout = ({ setUser, setLoggedIn }) => {
-  setUser(null);
+    setUser({ id: "1" });
   setLoggedIn(false);
   return <Redirect to="/" />;
 };
