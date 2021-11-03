@@ -2,7 +2,6 @@ import React, {useState} from 'react'
 import { useAxiosGet } from '../hooks/axiosGet';
 import InvestmentList from './InvestmentList';
 import ReactPaginate from 'react-paginate';
-import { createGlobalStyle } from 'styled-components';
 
 
 const Portfolio = ({openModal, user, loggedIn}) => {
