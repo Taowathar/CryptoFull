@@ -37,6 +37,10 @@ namespace CryppitBackend.Controllers
         public User CheckPassword(User user)
         {
             var currentUser = GetUserByEmail(user.Email);
+            if (currentUser == null)
+            {
+                return new User {Email = "wrong"};
+            }
             if (currentUser.Password.Equals(HashPassword(user.Password, currentUser.Salt).Item2))
             {
                 return currentUser;
