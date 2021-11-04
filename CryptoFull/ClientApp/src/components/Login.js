@@ -49,6 +49,7 @@ const Login = ({ setUser, setLoggedIn, loggedIn }) => {
                         onChange={onChange}
                         value={userData.Email}
                         placeholder="Email"
+                        required={true}
                     />
                 </div>
                 <div className="register-password-block">
@@ -59,6 +60,7 @@ const Login = ({ setUser, setLoggedIn, loggedIn }) => {
                         onChange={onChange}
                         value={userData.Password}
                         placeholder="Password"
+                        required={true}
                     />
                 </div>
 
